@@ -1,0 +1,22 @@
+services: 
+  java:
+    container_name: back
+    build: ./
+    ports:
+      - "9090:9090"
+      - "27017:27017"
+      - "27018:27018"
+      - "27019:27019"
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./app:/home
+    depends_on:
+      - redis 
+  redis:
+    container_name: redis
+    image: redis:latest
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "6379:6379"
