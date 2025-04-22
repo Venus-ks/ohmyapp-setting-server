@@ -14,9 +14,6 @@ services:
       - ./app:/home
     depends_on:
       - redis 
-    environment:
-      - SPRING_DEVTOOLS_RESTART_ENABLED=true
-      - SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
   redis:
     container_name: redis
     image: redis:latest
